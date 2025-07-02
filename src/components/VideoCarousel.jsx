@@ -167,28 +167,28 @@ const VideoCarousel = () => {
             <div className="video-carousel_container">
               <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
                 <video
-                  id="video"
-                  playsInline={true}
-                  className={`${
-                    list.id === 2 && "translate-x-44"
-                  } pointer-events-none`}
-                  preload="auto"
-                  muted
-                  ref={(el) => (videoRef.current[i] = el)}
-                  onEnded={() =>
-                    i !== 3
-                      ? handleProcess("video-end", i)
-                      : handleProcess("video-last")
-                  }
-                  onPlay={() =>
-                    setVideo((pre) => ({ ...pre, isPlaying: true }))
-                  }
-                  onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
-                >
-                  <source src={list.video} type="video/mp4" />
-                </video>
-              </div>
-
+                    id="video"
+                    playsInline
+                    autoPlay
+                    muted
+                    preload="auto"
+                    className={`w-full h-full object-cover pointer-events-none ${
+                      list.id === 2 ? "translate-x-44" : ""
+                    }`}
+                    ref={(el) => (videoRef.current[i] = el)}
+                    onEnded={() =>
+                      i !== 3
+                        ? handleProcess("video-end", i)
+                        : handleProcess("video-last")
+                    }
+                    onPlay={() =>
+                      setVideo((pre) => ({ ...pre, isPlaying: true }))
+                    }
+                    onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
+                  >
+                    <source src={list.video} type="video/mp4" />
+                  </video>
+                  </div>
               <div className="absolute top-12 left-[5%] z-10">
                 {list.textLists.map((text, i) => (
                   <p key={i} className="md:text-2xl text-xl font-medium">

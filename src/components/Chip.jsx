@@ -59,7 +59,7 @@ const HowItWorks = () => {
           <div className="relative w-full max-w-[700px] mx-auto aspect-[16/9] rounded-[56px] overflow-hidden">
           {/* VIDEO */}
           <video
-            className="absolute inset-0 w-[96%] h-[80%] rounded-3xl object-cover m-auto"
+            className="absolute top-1/2 left-1/2 w-[96%] h-[80%] rounded-3xl object-cover -translate-x-1/2 -translate-y-1/2"
             playsInline
             muted
             loop
@@ -68,6 +68,7 @@ const HowItWorks = () => {
           >
             <source src={frameVideo} type="video/mp4" />
           </video>
+
 
           {/* FRAME */}
           <img
