@@ -3,7 +3,7 @@
 An elegant, animated Apple iPhone landing page built with **React**, **GSAP**, **Tailwind CSS**, and **Framer Motion**. It features responsive animations, video carousels, scroll-based transitions, and performance monitoring with **Sentry**.
 
 ## 🔥 Live Demo
-[View Website on Vercel](https://apple-website-tan-mu.vercel.app/)
+[View Website on Vercel](https://apple-iphone-clone-website.vercel.app/)
 
 ---
 
