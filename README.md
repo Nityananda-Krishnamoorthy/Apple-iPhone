@@ -1,4 +1,4 @@
-![Apple Logo](./public/assets/images/apple.svg)
+![Apple Logo](./public/assets/images/apple.png)
 
 # Apple iPhone Showcase Website
 
