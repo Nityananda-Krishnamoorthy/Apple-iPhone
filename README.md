@@ -58,6 +58,8 @@ This project uses **Sentry** to track web vitals and performance metrics. Below 
 
 > The dashboard shows that the website performs exceptionally well across all major performance indicators.
 
+---
+
 ## 🧠 Getting Started
 
 ### 1. Clone the Repo
