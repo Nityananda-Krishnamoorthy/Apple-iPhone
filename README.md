@@ -1,6 +1,4 @@
-![Apple Logo](./public/assets/images/apple.png)
-
-# Apple iPhone Showcase Website
+# ![Apple Logo](./public/assets/images/apple.png) Apple iPhone Showcase Website
 
 An elegant, animated Apple iPhone landing page built with **React**, **GSAP**, **Tailwind CSS**, and **Framer Motion**. It features responsive animations, video carousels, scroll-based transitions, and performance monitoring with **Sentry**.
 
