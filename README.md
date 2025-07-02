@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# 🍎 Apple iPhone Showcase Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An elegant, animated Apple iPhone landing page built with **React**, **GSAP**, **Tailwind CSS**, and **Framer Motion**. It features responsive animations, video carousels, scroll-based transitions, and performance monitoring with **Sentry**.
 
-## Available Scripts
+## 🔥 Live Demo
+[View Website on Vercel](https://apple-website-tan-mu.vercel.app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ⚡ **GSAP Scroll Animations** — Smooth reveal and parallax transitions.
+- 🎞️ **Video Carousels** — Interactive highlight sections powered by GSAP.
+- 📱 **Responsive Design** — Fully responsive for mobile, tablet, and desktop.
+- 🎥 **Optimized Video** — Uses `playsInline`, `muted`, and `autoPlay` for seamless mobile playback.
+- 📊 **Sentry Integration** — Real-time performance and error monitoring.
+- 🔁 **Reusable Components** — Modular architecture for scalability.
+- 🌓 **Dark UI Theme** — Inspired by Apple's official design aesthetics.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React 18**
+- **GSAP (GreenSock Animation Platform)**
+- **Tailwind CSS**
+- **Sentry (Performance Monitoring & Error Logging)**
+- **Vite** (or Create React App, depending on your setup)
+- **Vercel** (for deployment)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📸 Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Hero Section | Video Carousel | Mobile View |
+|--------------|----------------|-------------|
+| ![Hero](./public/assets/screenshots/hero.png) | ![Carousel](./public/assets/screenshots/highlight.png) | ![Mobile](./public/assets/screenshots/mobile.png) |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
+## 📊 Performance Monitoring with Sentry
 
-### `npm run eject`
+This project uses **Sentry** to track web vitals and performance metrics. Below are real-time insights from the production build.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ✅ Web Vitals Summary
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Metric                          | Value   | Status     |
+|--------------------------------|---------|------------|
+| **Largest Contentful Paint**   | 462ms   | Good (99)  |
+| **First Contentful Paint**     | 369ms   | Good (97)  |
+| **Interaction to Next Paint**  | 48ms    | Good (97)  |
+| **Cumulative Layout Shift**    | 0.03    | Good (95)  |
+| **Time to First Byte**         | 35ms    | Good (95)  |
+| **Overall Perf Score**         | 97      | Excellent  |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 📸 Screenshot (Sentry Dashboard)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Performance Dashboard](./public/assets/screenshots/dashboard.png)
 
-## Learn More
+> The dashboard shows that the website performs exceptionally well across all major performance indicators.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧠 Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. Clone the Repo
+```bash
+git clone https://github.com/Nityananda-Krishnamoorthy/AppleWebsite.git
+cd AppleWebsite
+```
 
-### Code Splitting
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Add `.env` File for Sentry
+```env
+VITE_SENTRY_DSN=https://<your-dsn>@sentry.io/<project-id>
+```
 
-### Analyzing the Bundle Size
+> 💡 You can get your DSN from the Sentry project settings after creating one at [https://sentry.io](https://sentry.io)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 4. Run the Project
+```bash
+npm run dev
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📈 Sentry Setup
 
-### Advanced Configuration
+### Installation
+```bash
+npm install @sentry/react @sentry/tracing
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Initialization (inside `index.js` )
+```js
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
 
-### Deployment
+Sentry.init({
+  dsn: import.meta.env.VITE_SENTRY_DSN,
+  integrations: [new BrowserTracing()],
+  tracesSampleRate: 1.0, // Adjust as needed
+});
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+> Sentry will track performance, page transitions, and console errors.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧩 Folder Structure
+
+```
+public/
+├── assets/
+├── models/
+└── index.html
+src/
+├── components/
+├── constants/
+├── utils/
+├── App.jsx
+├── index.js
+└── index.css
+```
+
+---
+
+## 🧪 Performance Optimization Tips
+
+- Used `playsInline`, `muted`, and `autoPlay` for mobile-friendly video playback.
+- Used `ResizeObserver` or `window.innerWidth` to dynamically swap HD vs mobile videos.
+- Used `useGSAP()` to isolate scroll-based animations and avoid re-renders.
+- Lazy-loaded all components and media assets.
+- Used `Sentry` to track TTFB, load bottlenecks, and animation jank.
+
+---
+
+## 🚀 Deployment
+
+This project is optimized for deployment via [Vercel](https://vercel.com):
+
+```bash
+npm run build
+vercel deploy
+```
+
+---
+
+## 📄 License
+
+MIT © 2025 [Nityanada](https://github.com/Nityananda-Krishnamoorthy/)
+
+---
+
+## 🙌 Credits
+
+Inspired by Apple.com. This is a personal project and not affiliated with Apple Inc.
+
+---
