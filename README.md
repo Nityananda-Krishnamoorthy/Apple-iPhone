@@ -75,7 +75,7 @@ npm install
 
 ### 3. Add `.env` File for Sentry
 ```env
-VITE_SENTRY_DSN=https://<your-dsn>@sentry.io/<project-id>
+REACT_APP_SENTRY_DSN=https://<your-dsn>@sentry.io/<project-id>
 ```
 
 > 💡 You can get your DSN from the Sentry project settings after creating one at [https://sentry.io](https://sentry.io)
@@ -100,7 +100,7 @@ import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
 
 Sentry.init({
-  dsn: import.meta.env.VITE_SENTRY_DSN,
+  dsn: process.env.REACT_APP_SENTRY_DSN,
   integrations: [new BrowserTracing()],
   tracesSampleRate: 1.0, // Adjust as needed
 });
