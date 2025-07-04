@@ -64,6 +64,7 @@ const HowItWorks = () => {
             muted
             loop
             autoPlay
+            controls={false}
             ref={videoRef}
           >
             <source src={frameVideo} type="video/mp4" />

@@ -103,6 +103,7 @@ const Features = () => {
                             muted
                             autoPlay
                             preload="auto"
+                            controls={false}
                             >
                         <source src={exploreVideo} type="video/mp4" />
                         </video>

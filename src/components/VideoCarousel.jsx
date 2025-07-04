@@ -26,28 +26,29 @@ const VideoCarousel = () => {
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
-    // slider animation to move the video out of the screen and bring the next video in
-    gsap.to("#slider", {
-      transform: `translateX(${-100 * videoId}%)`,
-      duration: 2,
-      ease: "power2.inOut", // show visualizer https://gsap.com/docs/v3/Eases
-    });
-
     // video animation to play the video when it is in the view
-    gsap.to("#video", {
-      scrollTrigger: {
-        trigger: "#video",
-        toggleActions: "restart none none none",
-      },
-      onComplete: () => {
-        setVideo((pre) => ({
-          ...pre,
-          startPlay: true,
-          isPlaying: true,
-        }));
-      },
-    });
+    gsap.to(".carousel-video", {
+  scrollTrigger: {
+    trigger: ".carousel-video",
+    toggleActions: "restart none none none",
+  },
+  onComplete: () => {
+    setVideo((pre) => ({
+      ...pre,
+      startPlay: true,
+      isPlaying: true,
+    }));
+  },
+});
+
   }, [isEnd, videoId]);
+     useEffect(() => {
+  gsap.to(".slider", {
+    x: `${-100 * videoId}%`,
+    duration: 2,
+    ease: "power2.inOut",
+  });
+}, [videoId]);
 
   useEffect(() => {
     let currentProgress = 0;
@@ -163,18 +164,16 @@ const VideoCarousel = () => {
     <>
       <div className="flex items-center">
         {highlightsSlides.map((list, i) => (
-          <div key={list.id} id="slider" className="sm:pr-20 pr-10">
+          <div key={list.id} className="slider sm:pr-20 pr-10">
             <div className="video-carousel_container">
               <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
                 <video
-                    id="video"
+                    controls={false}
                     playsInline
                     autoPlay
                     muted
                     preload="auto"
-                    className={`w-full h-full object-cover pointer-events-none ${
-                      list.id === 2 ? "translate-x-44" : ""
-                    }`}
+                    className={`carousel-video w-full h-full object-cover pointer-events-none`}
                     ref={(el) => (videoRef.current[i] = el)}
                     onEnded={() =>
                       i !== 3
